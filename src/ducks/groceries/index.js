@@ -51,16 +51,32 @@ export default function reducer(state = initialState, action) {
       return { ...state, list: [...state.list, payload]}
 
     case REMOVE_ITEM:
-      // Write a custom reducer that will remove an item from the list array
-      return state; 
+      const removedItem = state.list.filter(item => item.id !== payload);
+      const isSelectedItemRemoved = state.selectedItem.id === payload;
+
+      return {
+        ...state,
+        list: removedItem,
+        // deselect item if the user removes selected item
+        selectedItem: isSelectedItemRemoved ? {} : state.selectedItem,
+        isItemSelected: isSelectedItemRemoved ? false : state.isItemSelected
+      }; 
 
     case SELECT_ITEM:
-      // Write a custom reducer that will select an item
-      return state;
+      const selectedItem = state.list.find(item => item.id === payload) || {};
+
+      return {
+        ...state,
+        selectedItem,
+        isItemSelected: true
+      };
 
     case DESELECT_ITEM:
-      // Write a customer reducer that will deselect an item
-      return state;
+      return {
+        ...state,
+        selectedItem: {},
+        isItemSelected: false
+      };
 
     default:
       return state;
@@ -71,4 +87,18 @@ export default function reducer(state = initialState, action) {
 export const addItem = item => ({
   type: ADD_ITEM,
   payload: item,
+});
+
+export const removeItem = id => ({
+  type: REMOVE_ITEM,
+  payload: id
+});
+
+export const selectItem = id => ({
+  type: SELECT_ITEM,
+  payload: id
+});
+
+export const deselectItem = () => ({
+  type: DESELECT_ITEM
 });
