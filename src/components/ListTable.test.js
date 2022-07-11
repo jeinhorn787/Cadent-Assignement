@@ -20,15 +20,9 @@ describe('<ListTable />', () => {
     });
     render(<ListTable />);
 
-    expect(screen.getByText('ID')).toBeInTheDocument();
     expect(screen.getByText('Name')).toBeInTheDocument();
-    expect(screen.getByText('Category')).toBeInTheDocument();
-    expect(screen.getByText('Delivery Method')).toBeInTheDocument();
     expect(screen.getByText('Actions')).toBeInTheDocument();
-    expect(screen.getByText(10)).toBeInTheDocument();
     expect(screen.getByText('Apple')).toBeInTheDocument();
-    expect(screen.getByText('Fruit')).toBeInTheDocument();
-    expect(screen.getByText('Air')).toBeInTheDocument();
     expect(screen.getByText('Select')).toBeInTheDocument();
     expect(screen.getByText('Deselect')).toBeInTheDocument();
     expect(screen.getByText('Remove')).toBeInTheDocument();

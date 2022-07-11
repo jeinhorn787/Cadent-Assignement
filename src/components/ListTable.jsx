@@ -19,27 +19,21 @@ export const ListTable = () => {
 
   return (
     <TableContainer id="grocery-list-table">
-      <Table sx={{ maxWidth: 900 }}>
+      <Table sx={{ maxWidth: 600 }}>
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
             <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Category</TableCell>
-            <TableCell align="right">Delivery Method</TableCell>
             <TableCell align="center">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {groceryList.map((item) => {
-            const { category, deliveryMethod, id, name } = item;
+            const { id, name } = item;
             const isItemSelected = id === selectedItem.id;
 
             return (
               <TableRow key={id} selected={isItemSelected}>
-                <TableCell>{id}</TableCell>
                 <TableCell align="right">{name}</TableCell>
-                <TableCell align="right">{category}</TableCell>
-                <TableCell align="right">{deliveryMethod}</TableCell>
                 <TableCell align="right">
                   <Button
                     disabled={isItemSelected}

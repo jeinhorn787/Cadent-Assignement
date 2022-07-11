@@ -8,7 +8,7 @@ const ListSelection = () => {
   return (
     <div className="listSelection">
       {!isItemSelected ? (
-        <span>Select an Item</span>
+        <h3>Select an Item for Details</h3>
       ) : (
         <>
           <span>

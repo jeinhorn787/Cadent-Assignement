@@ -18,7 +18,7 @@ describe('<ListSelection />', () => {
 
     render(<ListSelection />);
 
-    expect(screen.getByText('Select an Item')).toBeInTheDocument();
+    expect(screen.getByText('Select an Item for Details')).toBeInTheDocument();
   });
 
   it('should render all of a selected items details', () => {
@@ -34,7 +34,9 @@ describe('<ListSelection />', () => {
 
     render(<ListSelection />);
 
-    expect(screen.queryByText('Select an Item')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Select an Item for Details')
+    ).not.toBeInTheDocument();
     expect(screen.getByText(/id/i)).toBeInTheDocument();
     expect(screen.getByText(/name/i)).toBeInTheDocument();
     expect(screen.getByText(/category/i)).toBeInTheDocument();
