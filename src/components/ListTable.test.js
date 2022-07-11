@@ -6,14 +6,16 @@ import { ListTable } from './ListTable';
 
 jest.mock('hooks/useGroceryState', () => ({
   useGroceryState: jest.fn()
-}))
+}));
 
 describe('<ListTable />', () => {
   beforeEach(jest.clearAllMocks);
 
   it('renders the table correctly', () => {
     useGroceryState.mockReturnValue({
-      groceryList: [{ id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }],
+      groceryList: [
+        { id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }
+      ],
       selectedItem: {}
     });
     render(<ListTable />);
@@ -35,7 +37,9 @@ describe('<ListTable />', () => {
   it('should properly select item', async () => {
     const mockHandleSelectItem = jest.fn();
     useGroceryState.mockReturnValue({
-      groceryList: [{ id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }],
+      groceryList: [
+        { id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }
+      ],
       selectedItem: {},
       handleSelectItem: mockHandleSelectItem
     });
@@ -51,8 +55,15 @@ describe('<ListTable />', () => {
   it('should properly deselect item', async () => {
     const mockHandleDeselectItem = jest.fn();
     useGroceryState.mockReturnValue({
-      groceryList: [{ id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }],
-      selectedItem: { id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' },
+      groceryList: [
+        { id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }
+      ],
+      selectedItem: {
+        id: 10,
+        name: 'Apple',
+        category: 'Fruit',
+        deliveryMethod: 'Air'
+      },
       handleDeselectItem: mockHandleDeselectItem
     });
 
@@ -68,7 +79,9 @@ describe('<ListTable />', () => {
   it('should properly remove item', async () => {
     const mockHandleRemoveItem = jest.fn();
     useGroceryState.mockReturnValue({
-      groceryList: [{ id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }],
+      groceryList: [
+        { id: 10, name: 'Apple', category: 'Fruit', deliveryMethod: 'Air' }
+      ],
       selectedItem: {},
       handleRemoveItem: mockHandleRemoveItem
     });
@@ -81,4 +94,4 @@ describe('<ListTable />', () => {
 
     expect(mockHandleRemoveItem).toHaveBeenCalledWith(10);
   });
-})
+});

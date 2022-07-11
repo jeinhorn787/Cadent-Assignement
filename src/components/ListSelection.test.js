@@ -43,5 +43,5 @@ describe('<ListSelection />', () => {
     expect(screen.getByText('Apple')).toBeInTheDocument();
     expect(screen.getByText('Fruit')).toBeInTheDocument();
     expect(screen.getByText('Air')).toBeInTheDocument();
-  })
-})
+  });
+});

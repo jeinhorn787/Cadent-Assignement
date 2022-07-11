@@ -8,14 +8,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 
-
 export const ListTable = () => {
-  const { 
-    handleDeselectItem, 
-    handleRemoveItem, 
-    handleSelectItem, 
-    groceryList, 
-    selectedItem 
+  const {
+    handleDeselectItem,
+    handleRemoveItem,
+    handleSelectItem,
+    groceryList,
+    selectedItem
   } = useGroceryState();
 
   return (
@@ -31,7 +30,7 @@ export const ListTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {groceryList.map(item => {
+          {groceryList.map((item) => {
             const { category, deliveryMethod, id, name } = item;
             const isItemSelected = id === selectedItem.id;
 
@@ -42,17 +41,27 @@ export const ListTable = () => {
                 <TableCell align="right">{category}</TableCell>
                 <TableCell align="right">{deliveryMethod}</TableCell>
                 <TableCell align="right">
-                  <Button disabled={isItemSelected} onClick={() => handleSelectItem(id)}>Select</Button>
-                  <Button disabled={!isItemSelected} onClick={() => handleDeselectItem()}>Deselect</Button>
+                  <Button
+                    disabled={isItemSelected}
+                    onClick={() => handleSelectItem(id)}
+                  >
+                    Select
+                  </Button>
+                  <Button
+                    disabled={!isItemSelected}
+                    onClick={() => handleDeselectItem()}
+                  >
+                    Deselect
+                  </Button>
                   <Button onClick={() => handleRemoveItem(id)}>Remove</Button>
                 </TableCell>
               </TableRow>
-            )
+            );
           })}
         </TableBody>
       </Table>
-  </TableContainer>
+    </TableContainer>
   );
-}
+};
 
-export default ListTable
+export default ListTable;

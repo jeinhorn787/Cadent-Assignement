@@ -7,22 +7,33 @@ const ListSelection = () => {
 
   return (
     <div className="listSelection">
-      {!isItemSelected 
-        ? 
-        <span>Select an Item</span> 
-        : 
+      {!isItemSelected ? (
+        <span>Select an Item</span>
+      ) : (
         <>
-          <span><b>ID: </b>{id}</span> 
+          <span>
+            <b>ID: </b>
+            {id}
+          </span>
           <br />
-          <span><b>Name: </b>{name}</span>
+          <span>
+            <b>Name: </b>
+            {name}
+          </span>
           <br />
-          <span><b>Category: </b>{category}</span>
+          <span>
+            <b>Category: </b>
+            {category}
+          </span>
           <br />
-          <span><b>Delivery Method: </b>{deliveryMethod}</span> 
+          <span>
+            <b>Delivery Method: </b>
+            {deliveryMethod}
+          </span>
         </>
-      }
-  </div>
-  )
+      )}
+    </div>
+  );
 };
 
 export default ListSelection;
