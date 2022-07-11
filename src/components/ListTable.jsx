@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 
 export const ListTable = () => {
@@ -27,7 +27,7 @@ export const ListTable = () => {
             <TableCell align="right">Name</TableCell>
             <TableCell align="right">Category</TableCell>
             <TableCell align="right">Delivery Method</TableCell>
-            <TableCell align="right">Actions</TableCell>
+            <TableCell align="center">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
